@@ -344,8 +344,22 @@ namespace HospitalSanVicente.Services
                 }
             }
 
-            Console.Write("Notas del doctor (opcional): ");
-            appointment.Notes = Console.ReadLine()?.Trim();
+            // Validar notas (opcional)
+            while (true)
+            {
+                Console.Write("Notas del doctor (opcional): ");
+                var notesInput = Console.ReadLine()?.Trim();
+                
+                if (string.IsNullOrWhiteSpace(notesInput) || ValidationHelper.IsValidNotes(notesInput))
+                {
+                    appointment.Notes = notesInput;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Las notas contienen caracteres no permitidos o exceden el límite de 500 caracteres.");
+                }
+            }
 
             return appointment;
         }
