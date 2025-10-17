@@ -1,65 +1,65 @@
-# Sistema de Gestión Hospital San Vicente
+# Hospital San Vicente Management System
 
-## Descripción
+## Description
 
-Sistema de consola desarrollado en C# para la gestión digital de citas médicas, pacientes y médicos del Hospital San Vicente. Elimina la dependencia de registros manuales y automatiza la programación de citas con validaciones de conflictos.
+Console application developed in C# for the digital management of medical appointments, patients, and doctors at Hospital San Vicente. Eliminates dependency on manual records and automates appointment scheduling with conflict validations.
 
-## Características Principales
+## Main Features
 
-### Gestión de Pacientes
-- Registro, edición, búsqueda y eliminación de pacientes
-- Validación de documentos únicos
-- Historial de citas por paciente
+### Patient Management
+- Patient registration, editing, search, and deletion
+- Unique document validation
+- Patient appointment history
 
-### Gestión de Médicos
-- Registro, edición, búsqueda y eliminación de médicos
-- Filtrado por especialidad
-- Historial de citas por médico
+### Doctor Management
+- Doctor registration, editing, search, and deletion
+- Filtering by specialty
+- Doctor appointment history
 
-### Gestión de Citas
-- Programación con validación de conflictos de horarios
-- Cancelación y marcado como atendidas
-- Listado por fecha, estado, paciente o médico
-- Envío automático de correos de confirmación
+### Appointment Management
+- Scheduling with time conflict validation
+- Cancellation and marking as attended
+- Listing by date, status, patient, or doctor
+- Automatic confirmation email sending
 
-### Sistema de Notificaciones
-- Envío automático de correos usando Gmail SMTP
-- Historial completo de envíos con estados
-- Formato profesional con información completa
+### Notification System
+- Automatic email sending using Gmail SMTP
+- Complete sending history with statuses
+- Professional format with complete information
 
-### Estadísticas
-- Contadores de pacientes, médicos y citas
-- Estadísticas por estado de citas
-- Métricas de correos electrónicos
+### Statistics
+- Patient, doctor, and appointment counters
+- Statistics by appointment status
+- Email metrics
 
-## Tecnologías
+## Technologies
 
-- **.NET 8.0** - Framework de desarrollo
-- **Entity Framework Core** - ORM para acceso a datos
-- **MySQL** - Base de datos relacional remota
-- **MailKit** - Envío de correos electrónicos
-- **Dependency Injection** - Inyección de dependencias
+- **.NET 8.0** - Development framework
+- **Entity Framework Core** - ORM for data access
+- **MySQL** - Remote relational database
+- **MailKit** - Email sending
+- **Dependency Injection** - Dependency injection
 
-## Instalación
+## Installation
 
-### Requisitos
+### Requirements
 - .NET 8.0 Runtime
-- Acceso a internet (para base de datos MySQL)
+- Internet access (for MySQL database)
 
-### Pasos
-1. Clonar el repositorio
-2. Restaurar dependencias: `dotnet restore`
-3. Compilar: `dotnet build`
-4. Ejecutar: `dotnet run`
+### Steps
+1. Clone the repository
+2. Restore dependencies: `dotnet restore`
+3. Build: `dotnet build`
+4. Run: `dotnet run`
 
-### Configuración de Base de Datos
-El sistema se conecta automáticamente a una base de datos MySQL remota:
+### Database Configuration
+The system automatically connects to a remote MySQL database:
 - **Host:** 168.119.183.3:3307
-- **Base de datos:** PruebaDeDesempeñoJeronimo
-- Las tablas se crean automáticamente
+- **Database:** PruebaDeDesempeñoJeronimo
+- Tables are created automatically
 
-### Configuración de Correo
-Configuración en `appsettings.json`:
+### Email Configuration
+Configuration in `appsettings.json`:
 ```json
 {
   "EmailSettings": {
@@ -73,143 +73,143 @@ Configuración en `appsettings.json`:
 }
 ```
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 HospitalSanVicente/
 ├── Data/
-│   └── HospitalDbContext.cs          # Contexto de Entity Framework
+│   └── HospitalDbContext.cs          # Entity Framework Context
 ├── Models/
-│   ├── Patient.cs                    # Modelo de Paciente
-│   ├── Doctor.cs                     # Modelo de Médico
-│   ├── Appointment.cs                # Modelo de Cita Médica
-│   └── EmailLog.cs                   # Modelo de Log de Correos
+│   ├── Patient.cs                    # Patient Model
+│   ├── Doctor.cs                     # Doctor Model
+│   ├── Appointment.cs                # Medical Appointment Model
+│   └── EmailLog.cs                   # Email Log Model
 ├── Services/
-│   ├── IPatientService.cs            # Interfaz para servicio de pacientes
-│   ├── IDoctorService.cs             # Interfaz para servicio de médicos
-│   ├── IAppointmentService.cs        # Interfaz para servicio de citas
-│   ├── IEmailService.cs              # Interfaz para servicio de correos
-│   ├── IHospitalUIService.cs         # Interfaz para servicio de UI
-│   ├── PatientService.cs             # Implementación de lógica de negocio
-│   ├── DoctorService.cs              # Implementación de lógica de negocio
-│   ├── AppointmentService.cs         # Implementación de lógica de negocio
-│   ├── EmailService.cs               # Implementación de lógica de negocio
-│   └── HospitalUIService.cs          # Implementación de interfaz de usuario
+│   ├── IPatientService.cs            # Patient service interface
+│   ├── IDoctorService.cs             # Doctor service interface
+│   ├── IAppointmentService.cs        # Appointment service interface
+│   ├── IEmailService.cs              # Email service interface
+│   ├── IHospitalUIService.cs         # UI service interface
+│   ├── PatientService.cs             # Business logic implementation
+│   ├── DoctorService.cs              # Business logic implementation
+│   ├── AppointmentService.cs         # Business logic implementation
+│   ├── EmailService.cs               # Business logic implementation
+│   └── HospitalUIService.cs          # User interface implementation
 ├── Utils/
-│   ├── ValidationHelper.cs           # Utilidades de validación
-│   └── ErrorHandler.cs               # Manejo centralizado de errores
+│   ├── ValidationHelper.cs           # Validation utilities
+│   └── ErrorHandler.cs               # Centralized error handling
 ├── diagrams/
-│   ├── Diagrama_Clases_Hospital.xml  # Archivo XML del diagrama de clases
-│   ├── Diagrama_Casos_Uso_Hospital.xml # Archivo XML del diagrama de casos de uso
-│   ├── Diagrama_Clases_Hospital.drawio.png # Imagen del diagrama de clases
-│   └── Diagrama_Casos_Uso_Hospital.drawio.png # Imagen del diagrama de casos de uso
+│   ├── Diagrama_Clases_Hospital.xml  # Class diagram XML file
+│   ├── Diagrama_Casos_Uso_Hospital.xml # Use case diagram XML file
+│   ├── Diagrama_Clases_Hospital.drawio.png # Class diagram image
+│   └── Diagrama_Casos_Uso_Hospital.drawio.png # Use case diagram image
 ├── media/
-│   ├── correo_confirmacion_cita.png  # Captura del correo de confirmación
-│   └── demo_sistema_completo.mp4     # Video demostrativo del sistema
-├── appsettings.json                  # Configuración de la aplicación
-├── Program.cs                        # Punto de entrada y flujo principal
-├── HospitalSanVicente.csproj         # Archivo de proyecto
-└── README.md                         # Documentación del proyecto
+│   ├── correo_confirmacion_cita.png  # Appointment confirmation email screenshot
+│   └── demo_sistema_completo.mp4     # Complete system demo video
+├── appsettings.json                  # Application configuration
+├── Program.cs                        # Entry point and main flow
+├── HospitalSanVicente.csproj         # Project file
+└── README.md                         # Project documentation
 ```
 
-## Uso del Sistema
+## System Usage
 
-### Menú Principal
-1. **Gestión de Pacientes** - Administrar información de pacientes
-2. **Gestión de Médicos** - Administrar información de médicos
-3. **Gestión de Citas Médicas** - Programar y administrar citas
-4. **Historial de Correos Electrónicos** - Ver logs de correos enviados
-5. **Estadísticas del Sistema** - Ver resumen general del sistema
-0. **Salir** - Cerrar la aplicación
+### Main Menu
+1. **Patient Management** - Manage patient information
+2. **Doctor Management** - Manage doctor information
+3. **Medical Appointment Management** - Schedule and manage appointments
+4. **Email History** - View sent email logs
+5. **System Statistics** - View general system summary
+0. **Exit** - Close the application
 
-### Operaciones Principales
+### Main Operations
 
-#### Gestión de Pacientes
-- **Registrar**: Nombre, documento único, edad, teléfono, email
-- **Editar**: Modificar campos existentes
-- **Buscar**: Por nombre, documento o email
-- **Eliminar**: Con validación de citas futuras
+#### Patient Management
+- **Register**: Name, unique document, age, phone, email
+- **Edit**: Modify existing fields
+- **Search**: By name, document, or email
+- **Delete**: With future appointment validation
 
-#### Gestión de Médicos
-- **Registrar**: Nombre, documento único, especialidad, teléfono, email
-- **Editar**: Modificar información médica
-- **Buscar**: Por nombre, documento o especialidad
-- **Eliminar**: Con validación de citas futuras
+#### Doctor Management
+- **Register**: Name, unique document, specialty, phone, email
+- **Edit**: Modify medical information
+- **Search**: By name, document, or specialty
+- **Delete**: With future appointment validation
 
-#### Gestión de Citas
-- **Agendar**: ID paciente, ID médico, fecha, hora, notas opcionales
-- **Cancelar**: Cambiar estado a "Cancelada"
-- **Marcar atendida**: Cambiar estado a "Atendida"
-- **Listar**: Por fecha, estado, paciente o médico
+#### Appointment Management
+- **Schedule**: Patient ID, doctor ID, date, time, optional notes
+- **Cancel**: Change status to "Cancelled"
+- **Mark as attended**: Change status to "Attended"
+- **List**: By date, status, patient, or doctor
 
-## Validaciones y Reglas de Negocio
+## Validations and Business Rules
 
-### Validaciones Generales
-- Documentos únicos en el sistema
-- Edad entre 1 y 150 años
-- Formato de email válido
-- Fecha y hora en formato correcto
-- No citas en fechas pasadas
+### General Validations
+- Unique documents in the system
+- Age between 1 and 150 years
+- Valid email format
+- Correct date and time format
+- No appointments in past dates
 
-### Validaciones de Citas
-- Un médico no puede tener dos citas en el mismo horario
-- Un paciente no puede tener dos citas en el mismo horario
-- Paciente y médico deben existir en el sistema
-- No eliminar citas futuras sin cancelarlas primero
+### Appointment Validations
+- A doctor cannot have two appointments at the same time
+- A patient cannot have two appointments at the same time
+- Patient and doctor must exist in the system
+- Cannot delete future appointments without cancelling them first
 
-## Arquitectura
+## Architecture
 
-### Patrones de Diseño
-- **Repository Pattern**: Servicios encapsulan lógica de acceso a datos
-- **Dependency Injection**: Inyección de dependencias para servicios
-- **Clean Architecture**: Separación clara de responsabilidades
-- **Separation of Concerns**: UI separada de lógica de negocio
+### Design Patterns
+- **Repository Pattern**: Services encapsulate data access logic
+- **Dependency Injection**: Dependency injection for services
+- **Clean Architecture**: Clear separation of responsibilities
+- **Separation of Concerns**: UI separated from business logic
 
-### Capas
-1. **Presentación**: Interfaz de consola (Program.cs + HospitalUIService.cs)
-2. **Lógica de Negocio**: Servicios (Services/)
-3. **Acceso a Datos**: Entity Framework (Data/)
-4. **Modelos**: Entidades de dominio (Models/)
-5. **Utilidades**: Validaciones y manejo de errores (Utils/)
+### Layers
+1. **Presentation**: Console interface (Program.cs + HospitalUIService.cs)
+2. **Business Logic**: Services (Services/)
+3. **Data Access**: Entity Framework (Data/)
+4. **Models**: Domain entities (Models/)
+5. **Utilities**: Validations and error handling (Utils/)
 
-### POO Avanzada
+### Advanced OOP
 - **Interfaces**: IPatientService, IDoctorService, IAppointmentService, IEmailService, IHospitalUIService
-- **Abstracción**: Contratos bien definidos para extensibilidad
-- **Inyección de Dependencias**: Configuración centralizada en Program.cs
+- **Abstraction**: Well-defined contracts for extensibility
+- **Dependency Injection**: Centralized configuration in Program.cs
 
-## Diagramas UML
+## UML Diagrams
 
-### Diagrama de Clases
-![Diagrama de Clases](diagrams/Diagrama_Clases_Hospital.drawio.png)
+### Class Diagram
+![Class Diagram](diagrams/Diagrama_Clases_Hospital.drawio.png)
 
-Muestra la estructura completa del sistema con modelos, interfaces, implementaciones y relaciones.
+Shows the complete system structure with models, interfaces, implementations, and relationships.
 
-### Diagrama de Casos de Uso
-![Diagrama de Casos de Uso](diagrams/Diagrama_Casos_Uso_Hospital.drawio.png)
+### Use Case Diagram
+![Use Case Diagram](diagrams/Diagrama_Casos_Uso_Hospital.drawio.png)
 
-Ilustra las interacciones entre actores (Administrador, Recepcionista, Médico, Paciente) y funcionalidades del sistema.
+Illustrates interactions between actors (Administrator, Receptionist, Doctor, Patient) and system functionalities.
 
-## Demostración del Sistema
+## System Demonstration
 
-### Correo Electrónico de Confirmación
-![Correo de Confirmación de Cita](media/correo_confirmacion_cita.png)
+### Appointment Confirmation Email
+![Appointment Confirmation Email](media/correo_confirmacion_cita.png)
 
-El sistema envía automáticamente correos profesionales con información completa de la cita.
+The system automatically sends professional emails with complete appointment information.
 
-### Video Demostrativo
-[Ver Video Demostrativo Completo](media/demo_sistema_completo.mp4)
+### Demo Video
+[Watch Complete Demo Video](media/demo_sistema_completo.mp4)
 
-Video que muestra todas las funcionalidades del sistema funcionando en consola.
+Video showing all system functionalities working in console.
 
-## Base de Datos
+## Database
 
-### Esquema de Tablas
+### Table Schema
 
 #### Patients
-- `Id` (PK), `Name`, `Document` (único), `Age`, `Phone`, `Email`, `CreatedAt`
+- `Id` (PK), `Name`, `Document` (unique), `Age`, `Phone`, `Email`, `CreatedAt`
 
 #### Doctors
-- `Id` (PK), `Name`, `Document` (único), `Specialty`, `Phone`, `Email`, `CreatedAt`
+- `Id` (PK), `Name`, `Document` (unique), `Specialty`, `Phone`, `Email`, `CreatedAt`
 
 #### Appointments
 - `Id` (PK), `PatientId` (FK), `DoctorId` (FK), `AppointmentDate`, `AppointmentTime`, `Status`, `Notes`, `CreatedAt`
@@ -217,37 +217,37 @@ Video que muestra todas las funcionalidades del sistema funcionando en consola.
 #### EmailLogs
 - `Id` (PK), `AppointmentId` (FK), `RecipientEmail`, `Subject`, `Body`, `Status`, `ErrorMessage`, `SentAt`
 
-## Comandos Útiles
+## Useful Commands
 
-### Desarrollo
+### Development
 ```bash
-dotnet restore    # Restaurar paquetes
-dotnet build      # Compilar proyecto
-dotnet run        # Ejecutar aplicación
-dotnet clean      # Limpiar proyecto
+dotnet restore    # Restore packages
+dotnet build      # Build project
+dotnet run        # Run application
+dotnet clean      # Clean project
 ```
 
-### Base de Datos
+### Database
 ```bash
-dotnet tool install --global dotnet-ef  # Instalar herramientas EF Core
-dotnet ef migrations add NombreMigracion  # Crear migración
-dotnet ef database update  # Aplicar migraciones
+dotnet tool install --global dotnet-ef  # Install EF Core tools
+dotnet ef migrations add MigrationName  # Create migration
+dotnet ef database update  # Apply migrations
 ```
 
-## Estado del Proyecto
+## Project Status
 
-### Funcionalidades Completadas
-- Gestión completa de pacientes, médicos y citas
-- Sistema de correos funcional con Gmail SMTP
-- Validaciones robustas en todos los campos
-- Manejo de errores centralizado y en español
-- Arquitectura limpia con separación de responsabilidades
-- Interfaz de usuario profesional y fácil de usar
-- POO avanzada con interfaces e inyección de dependencias
+### Completed Features
+- Complete management of patients, doctors, and appointments
+- Functional email system with Gmail SMTP
+- Robust validations in all fields
+- Centralized error handling in Spanish
+- Clean architecture with separation of responsibilities
+- Professional and easy-to-use user interface
+- Advanced OOP with interfaces and dependency injection
 
 ---
 
-**Desarrollado por:** Jerónimo Gutiérrez Arias  
+**Developed by:** Jerónimo Gutiérrez Arias  
 **Clan:** Van Rossum  
-**Correo:** jeronimogutierrezarias@outlook.com  
-**Documento:** 1021805938
+**Email:** jeronimogutierrezarias@outlook.com  
+**Document:** 1021805938
